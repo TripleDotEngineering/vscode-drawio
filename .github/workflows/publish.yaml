@@ -1,0 +1,37 @@
+name: Publish VSCode Extension
+
+on:
+    push:
+        branches: ["main"]
+
+jobs:
+    # Publish the VSCode Extension to the marketplace
+    vsce-publish:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Checkout Repository"
+              uses: actions/checkout@v3
+            - name: "VSCE Install"
+              run: npm install -g vsce
+            - name: "Run CI"
+              run: npm ci
+            - name: "Package"
+              run: vsce package
+            - name: "VSCE Publish"
+              run: vsce publish --packagePath ./tripledot-vscode-drawio-*.vsix -p ${{ secrets.VSCE_ACCESS_TOKEN }}
+
+    # Create the corresponding tag in git
+    create-tag:
+        runs-on: ubuntu-latest
+        needs: vsce-publish
+        steps:
+            - uses: actions/checkout@v3
+            - name: Use Node.js 18.x
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18.x
+                  cache: "npm"
+            - run: git config --global user.email "josh-kaplan@users.noreply.github.com"
+            - run: git config --global user.name "Josh Kaplan"
+            - run: git tag -a v$(node scripts/print-version.js) -m "Release version $(node scripts/print-version.js)"
+            - run: git push "https://josh-kaplan:${{ secrets.GITHUB_TOKEN }}@github.com/TripleDotEngineering/tripledot-vscode-themes.git" v$(node scripts/print-version.js)

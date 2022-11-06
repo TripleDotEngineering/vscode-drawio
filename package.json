@@ -1,11 +1,11 @@
 {
-	"name": "vscode-drawio",
+	"name": "tripledot-vscode-drawio",
 	"private": true,
-	"displayName": "Draw.io Integration",
-	"description": "This unofficial extension integrates Draw.io into VS Code.",
-	"version": "999.0.0-alpha",
+	"displayName": "Triple Dot - Draw.io Integration",
+	"description": "This unofficial extension integrates Draw.io into VS Code. This is a downstream of hediet.vscode-drawio.",
+	"version": "0.2.0",
 	"license": "GPL-3.0",
-	"publisher": "hediet",
+	"publisher": "TripleDot",
 	"keywords": [
 		"drawio",
 		"diagram",
@@ -16,8 +16,7 @@
 		"code link"
 	],
 	"author": {
-		"email": "henning.dieterichs@live.de",
-		"name": "Henning Dieterichs"
+		"name": "Josh Kaplan"
 	},
 	"readme": "./README.md",
 	"icon": "docs/logo.drawio.png",
@@ -26,7 +25,7 @@
 		"workspace"
 	],
 	"engines": {
-		"vscode": "^1.46.0"
+		"vscode": "^1.73.0"
 	},
 	"categories": [
 		"Visualization"
