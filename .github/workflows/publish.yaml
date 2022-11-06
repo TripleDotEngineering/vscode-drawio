@@ -18,9 +18,9 @@ jobs:
             - name: "Yarn Install"
               run: yarn install --frozen-lockfile
             - name: "Package"
-              run: vsce package
+              run: vsce package --yarn
             - name: "VSCE Publish"
-              run: vsce publish --packagePath ./tripledot-vscode-drawio-*.vsix -p ${{ secrets.VSCE_ACCESS_TOKEN }}
+              run: vsce publish --yarn --packagePath ./tripledot-vscode-drawio-*.vsix -p ${{ secrets.VSCE_ACCESS_TOKEN }}
 
     # Create the corresponding tag in git
     create-tag:
