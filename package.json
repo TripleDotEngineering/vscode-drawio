@@ -3,7 +3,7 @@
 	"private": true,
 	"displayName": "Triple Dot - Draw.io Integration",
 	"description": "This unofficial extension integrates Draw.io into VS Code. This is a downstream of hediet.vscode-drawio.",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"license": "GPL-3.0",
 	"publisher": "TripleDot",
 	"keywords": [
@@ -36,7 +36,7 @@
 		"onCommand:hediet.vscode-drawio.newDiagram"
 	],
 	"repository": {
-		"url": "https://github.com/hediet/vscode-drawio.git"
+		"url": "https://github.com/TripleDotEngineering/vscode-drawio.git"
 	},
 	"browser": "./dist/extension/index",
 	"main": "./dist/extension/index",
